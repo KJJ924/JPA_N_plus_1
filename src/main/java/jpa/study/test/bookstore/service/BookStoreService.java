@@ -21,7 +21,7 @@ public class BookStoreService {
     }
 
     public List<String> bookNameList(){
-        List<BookStore> byId = bookStoreRepository.findAllFetchJoin();
+        List<BookStore> byId = bookStoreRepository.findAllEntityGraph();
 
         return byId.stream().map(b->b.getBookList().get(0).getTitle())
             .collect(Collectors.toList());
