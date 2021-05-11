@@ -1,0 +1,8 @@
+package jpa.study.test.book.dao;
+
+import jpa.study.test.book.domain.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepository extends JpaRepository<Book ,Long> {
+
+}
