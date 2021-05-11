@@ -3,7 +3,6 @@ package jpa.study.test.bookstore.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
-import jpa.study.test.book.domain.Book;
 import jpa.study.test.bookstore.dao.BookStoreRepository;
 import jpa.study.test.bookstore.domain.BookStore;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,7 @@ public class BookStoreService {
     }
 
     public List<String> bookNameList(){
-        List<BookStore> byId = bookStoreRepository.findAll();
+        List<BookStore> byId = bookStoreRepository.findAllFetchJoin();
 
         return byId.stream().map(b->b.getBookList().get(0).getTitle())
             .collect(Collectors.toList());
